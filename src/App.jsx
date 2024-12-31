@@ -37,7 +37,7 @@ const App = () => {
         </>
       )}
       {!isRegister && !isLoggedIn && (
-        <div className="text-center mt-0" style={{ marginTop: -10 + "em" }}>
+        <div className="text-center mt-0" style={{ marginTop: -9 + "em" }}>
           <button
             onClick={() => setIsRegister(true)}
             className="text-blue-500 hover:underline"
