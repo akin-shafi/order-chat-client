@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const OrderTable = ({ onChat }) => {
+const OrderTable = ({ onChat, onLogout }) => {
   const [orders, setOrders] = useState([]);
   const baseURL = import.meta.env.VITE_API_BASE_URL;
 
@@ -26,7 +26,15 @@ const OrderTable = ({ onChat }) => {
 
   return (
     <div className="mt-6">
-      <h2 className="text-2xl mb-4">My Orders</h2>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl">My Orders</h2>
+        <button
+          onClick={onLogout}
+          className="bg-red-500 text-white py-1 px-3 rounded"
+        >
+          Logout
+        </button>
+      </div>
       <table className="min-w-full bg-white">
         <thead>
           <tr>

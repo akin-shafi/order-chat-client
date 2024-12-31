@@ -22,6 +22,12 @@ const App = () => {
     setChatRoomId(id);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    setIsLoggedIn(false);
+  };
+
   return (
     <div className="container mx-auto">
       {!isLoggedIn ? (
@@ -32,12 +38,12 @@ const App = () => {
         )
       ) : (
         <>
-          <OrderTable onChat={handleChat} />
+          <OrderTable onChat={handleChat} onLogout={handleLogout} />
           {chatRoomId && <Chat chatRoomId={chatRoomId} />}
         </>
       )}
       {!isRegister && !isLoggedIn && (
-        <div className="text-center mt-0" style={{ marginTop: -9 + "em" }}>
+        <div className="text-center mt-4">
           <button
             onClick={() => setIsRegister(true)}
             className="text-blue-500 hover:underline"
